@@ -1,9 +1,7 @@
-import array
 import networkx as nx
-import matplotlib.pyplot as plt
 import numpy as np
-from baseOperation import remplir_matrice,vector_init,matrixP
-from transMatrix import transitionMatrice_check,VtransationProbalities,mc_Classification
+from baseOperation import remplir_matrice,vector_init
+from transMatrix import transitionMatrice_check, mc_Classification
 
 
 #Ex1
