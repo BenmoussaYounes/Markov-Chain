@@ -3,18 +3,22 @@ import numpy as np
 
 from classification import classify
 from baseOperation import remplir_matrice, vector_init, matrixP
-from transMatrix import transitionMatrice_check, mc_Classification,ntransationProbalities
+from transMatrix import transitionMatrice_check, ntransationProbalities
 from scipy.sparse.csgraph import connected_components
 
 #matrixP(matrix)
 #Ex1
 
-#B=np.array([[0.5,0.6,0],[0,0.5,0.5],[0,0.4,0]])
-B=np.array([[1,0,0],[0,0.5,0.5],[1,0.4,0.2]])
+B=np.array([[0.5,0.5,0.3],[0,0.5,0.5],[0.3,0.4,0]])
+#B=np.array([[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8]])
+#B=np.array([[1,0,0],[0,1,1],[0,1,1]])
+print(B)
 classify(B)
 r=int(input("Entrer la dimension de la matrice : "))
 matrix = np.zeros((r,r)) # Pre-allocate matrix
-remplir_matrice(matrix)
+matrixP(matrix)
+#remplir_matrice(matrix)
+
 print(matrix)
 print(connected_components(matrix))
 pi=vector_init(r)
@@ -63,6 +67,37 @@ nx.draw(G, with_labels=True,pos=pos)
 plt.show()
 '''
 
-
+'''''
+              for ClassElmIndix in range(len(Class)):
+                  print('j',j)
+                  print('ClasseELmind',Class[ClassElmIndix])
+                  if j == Class[ClassElmIndix]:
+                      print('RECURRENT')
+                      trans_check=False
+              if trans_check == True :
+                 print('DONE') 
+                 break 
+    for ClassElm in Class:
+             print('Class ELM', ClassElm)
+             if transFond == False :
+              for j in range(len(state)):
+                #print('state j ', state[j])
+                #print('j', j)
+                 # Check if tran class with all nightbor states class element are same class state
+                if state[j] != 0 and j != ClassElm:
+                    print('here')
+                    #print('tran')
+                   #print('state number   -->', j)
+                    #print('ClassElm value -->', ClassElm)
+                    print('switched')
+                    transFond = True
+                    trans_check = True
+                else:
+                    #print('rec')
+                     #print('state number   -->', j)
+                   #print('ClassElm value -->', ClassElm)
+                   trans_check = False
+                   #break
+    '''''
 
 
