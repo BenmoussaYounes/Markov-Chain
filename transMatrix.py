@@ -31,27 +31,34 @@ def transitionMatrice_check(matrix, vector):
            break
     if valid: print('--> The matrix given is a Valid transition matrix')
     else: print('--> The matrix given is not a Valid transition matrix ! ')
+    print('----------------')
 
 
 
-def VtransationProbalities(matrix,v,n):
+def TransitionProbability_of_n_steps(matrix, v):
+  n = int(input('Enter the number of steps : '))
   i=0
   while(i<n):
-      v=np.dot(v, matrix)
+      matrix = np.dot(matrix, matrix)
       i=i+1
+  v = np.dot(v, matrix)
   print(v)
-
-
-
-
-def ntransationProbalities(matrix,n,v):
-  i=0
-  while(i<n):
-      matrix=np.dot(matrix,matrix)
-      i=i+1
-  v=np.dot(v,matrix)
-  print('π = ',v)
   print('-------------------')
+
+
+
+
+def StationnarystateVector(matrix, v):
+  i=0
+  n=50
+  while(i<n):
+      v = np.dot(v, matrix)
+      #print('π ',i,' = ', v)
+      i=i+1
+  #print('Stationnary State Vector : ')
+  print('π = ', v)
+  print('----------------')
+
 
 
 

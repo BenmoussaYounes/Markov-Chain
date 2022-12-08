@@ -1,40 +1,53 @@
+import Simulation
 import networkx as nx
 import numpy as np
 
 from classification import classify
 from baseOperation import remplir_matrice, vector_init, matrixP
-from transMatrix import transitionMatrice_check, ntransationProbalities
-from scipy.sparse.csgraph import connected_components
+from transMatrix import transitionMatrice_check, StationnarystateVector
+from Comparison import comparison
+
+from itertools import accumulate
+
+
 
 #matrixP(matrix)
 #Ex1
-
-B=np.array([[0.5,0.5,0.3],[0,0.5,0.5],[0.3,0.4,0]])
+B=np.array([[0.2,0.5,0.3],[0,0.5,0.5],[0.3,0.4,0.3]])
 #B=np.array([[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8],[0.5,0.6,0,5,6,8]])
-#B=np.array([[1,0,0],[0,1,1],[0,1,1]])
+#B=np.array([[1,0,0,0],[1,0,1,0],[0,1,0,1],[0,0,0,1]])
+#B=np.array([[0.5,0.5,0,0],[0,0.5,0.5,0],[0,0.5,0,0.5],[0.5,0.5,0,0]])
+print('Transition Matrix : ')
 print(B)
-classify(B)
-r=int(input("Entrer la dimension de la matrice : "))
-matrix = np.zeros((r,r)) # Pre-allocate matrix
-matrixP(matrix)
+pi=vector_init(len(B[0]))
+transitionMatrice_check(B, pi)
+c=comparison()
+c.comparison_Analytical_Empirical_Methods(B,pi)
+#print(B)
+#classify(B)
+#r=int(input("Enter The matrix size  : "))
+
+
+
+#matrix = np.zeros((r,r)) # Pre-allocate matrix
+#matrixP(matrix)
 #remplir_matrice(matrix)
 
-print(matrix)
-print(connected_components(matrix))
-pi=vector_init(r)
-
-
+#print(matrix)
 
 #Ex2
-print('transition matrix check : ')
-transitionMatrice_check(matrix, pi)
-n=int(input('Enter the number of steps : '))
-ntransationProbalities(matrix,n,pi)
+#print('transition matrix check : ')
+#transitionMatrice_check(matrix, pi)
+#StationnarystateVector(matrix, pi)
+
+
+
+
+
 
 #VtransationProbalities(matrix, pi)
 #B=np.array(matrix)
 #G = nx.from_numpy_array(B)
-
 ''''
 print('Is Connected : ', nx.is_connected(G))
 for edge in G.edges:
@@ -48,13 +61,11 @@ options = {
 }
 comp = list(nx.strongly_connected_components(G))
 '''
-
 #nx.draw_networkx_edges(G,pos,width=1.0,alpha=0.5)
 
 #nx.draw_networkx_edge_labels(G, pos, edge_labels)
 #nx.strongly_connected_components(B)
 #nx.connected_components()
-
 
 '''''
 pos=nx.spring_layout(G)

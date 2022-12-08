@@ -11,8 +11,8 @@ def remplir_matrice(matrice):
 
 
 def vector_init(n):
-
-    V = np.zeros(3)
+    print('Enter the probability vector of the state : ')
+    V = np.zeros(n)
     i = 0
     while i < n:
      print('π [', i, '] = ',end='')
@@ -20,9 +20,6 @@ def vector_init(n):
      i = i+1
     print('----------------')
     return V
-
-
-
 
 def matrixP(matrix):
     # print(len(matrix)) == Size of matrix
@@ -37,3 +34,4 @@ def matrixP(matrix):
             elif j==i:
                 matrix[i][j] = (2*i*(r-i))/(r*r)
             else : matrix[i][j] = 0
+    print('----------------')

@@ -15,7 +15,6 @@ def classify(Matrix):
     print()
     print('Number of connected component  : ', cmp[0],'/ Matrix Labels : ', cmp[1]) # (of the connected components)
     print('--------------------------------------------------------------')
-    indix = []
     checkedIndx=[]
     for i in range(len(cmp_list)):
         state = cmp_list[i]
