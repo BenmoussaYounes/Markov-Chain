@@ -1,15 +1,8 @@
-import Simulation
-import networkx as nx
 import numpy as np
 
-from classification import classify
-from baseOperation import remplir_matrice, vector_init, matrixP
-from transMatrix import transitionMatrice_check, StationnarystateVector
+from baseOperation import vector_init
+from transMatrix import transitionMatrice_check
 from Comparison import comparison
-
-from itertools import accumulate
-
-
 
 #matrixP(matrix)
 #Ex1
