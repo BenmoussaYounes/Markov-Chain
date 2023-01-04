@@ -1,7 +1,8 @@
 import numpy as np
 
 
-def transitionMatrice_check(matrix, vector):
+class markovChain:
+ def transitionMatrice_check(self,matrix, vector):
     #Vector de probability initial
     line_sum=0
     for i in range(len(vector)):
@@ -35,7 +36,7 @@ def transitionMatrice_check(matrix, vector):
 
 
 
-def TransitionProbability_of_n_steps(matrix, v):
+ def TransitionProbability_of_n_steps(self,matrix, v):
   n = int(input('Enter the number of steps : '))
   i=0
   while(i<n):
@@ -48,7 +49,7 @@ def TransitionProbability_of_n_steps(matrix, v):
 
 
 
-def StationnarystateVector(matrix, v):
+ def StationnarystateVector(self,matrix, v):
   i=0
   n=50
   while(i<n):
@@ -58,26 +59,4 @@ def StationnarystateVector(matrix, v):
   #print('Stationnary State Vector : ')
   print('π = ', v)
   print('----------------')
-
-
-
-
-def mc_Classification(matrix):
-
-    for i in range(len(matrix)):
-        recState=False
-        transientState=True
-        for j in range(len(matrix)):
-            print('J', j, 'I', i, matrix[j][i])
-            if matrix[j][i] != 0 and i != j:
-               transientState = False
-            if transientState == False:
-                print(j, '-->', i,': ',matrix[j][i])
-                print('State ', i, ': Is Recurrent')
-             #  Class['recurrent'] = [i]
-                print('------------')
-                break
-            if j == len(matrix)-1:
-              print('State ', i, ': Is Transient')
-              print('------------------')
 
